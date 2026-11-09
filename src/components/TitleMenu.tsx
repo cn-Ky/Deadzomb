@@ -27,7 +27,6 @@ export const TitleMenu = memo(function TitleMenu() {
           <button data-act="play"><i>01</i><span>OYNA</span></button>
           <button data-act="how"><i>02</i><span>NASIL OYNANIR</span></button>
           <button data-act="settings"><i>03</i><span>AYARLAR</span></button>
-          <button data-act="wavedash"><i>04</i><span>WAVEDASH'TE OYNA</span></button>
         </nav>
       </div>
 

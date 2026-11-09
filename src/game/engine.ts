@@ -3467,13 +3467,6 @@ function updateCamera(dt) {
 }
 
 // --- the menu itself: keyboard (arrows/WASD, enter, esc) and mouse both drive it ---
-// PLAY ON WAVEDASH sends players found elsewhere to the game's Wavedash page; on Wavedash
-// (the SDK is there, or this page, its embedder or referrer is wavedash.com) it's dropped
-const WAVEDASH_URL = 'https://wavedash.com/games/abandon-all-hope';
-const onWavedash = !!Wavedash || [location.href, document.referrer, ...(location.ancestorOrigins || [])].some(u => {
-  try { return /(^|\.)wavedash\.com$/.test(new URL(u).hostname); } catch { return false; }
-});
-if (onWavedash) document.querySelector('#menuList [data-act="wavedash"]').hidden = true;
 const menuButtons = [...document.querySelectorAll('#menuList button')];
 const settingRows = [...document.querySelectorAll('#settingRows .srow')];
 const menu = {
@@ -3498,7 +3491,6 @@ const menu = {
     const act = menuButtons[i].dataset.act;
     this.select(i, true);
     if (act === 'play') { this.open(null); startGame(true); return; }
-    if (act === 'wavedash') { audio.ui('select'); window.open(WAVEDASH_URL, '_top'); return; }
     audio.ui(this.panel === act ? 'back' : 'select');
     this.open(this.panel === act ? null : act);
   },
