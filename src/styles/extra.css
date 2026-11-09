@@ -1,0 +1,25 @@
+[hidden] { display: none !important; }
+
+/* ---- nişangah ---- */
+body.playing, body.playing * { cursor: none !important; }
+#crosshair {
+  position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 6; pointer-events: none;
+  opacity: 0; --gap: 8px; --c: #e9e2d6; will-change: transform;
+  filter: drop-shadow(0 0 2px #000) drop-shadow(0 0 5px #000a);
+}
+#crosshair.show { opacity: .95; }
+#crosshair.empty { --c: #d6453c; }
+#crosshair.hot { --c: #ff7a2e; }
+.xh-t { position: absolute; background: var(--c); transition: transform .06s linear; }
+.xh-up, .xh-down { width: 2px; height: 9px; left: -1px; top: 0; }
+.xh-left, .xh-right { height: 2px; width: 9px; top: -1px; left: 0; }
+.xh-up { transform: translateY(calc(var(--gap) * -1 - 9px)); }
+.xh-down { transform: translateY(var(--gap)); }
+.xh-left { transform: translateX(calc(var(--gap) * -1 - 9px)); }
+.xh-right { transform: translateX(var(--gap)); }
+.xh-dot { position: absolute; width: 4px; height: 4px; left: -2px; top: -2px; background: var(--c); border-radius: 50%; }
+.xh-ring { position: absolute; width: 44px; height: 44px; left: -22px; top: -22px; }
+.xh-ring circle { stroke: #e8d28a; opacity: 0; }
+
+/* uzun Türkçe üst başlık için daha sıkı harf aralığı */
+#titleTop { font-size: clamp(18px, 2.2vw, 32px); letter-spacing: .22em; margin-bottom: 8px; }
